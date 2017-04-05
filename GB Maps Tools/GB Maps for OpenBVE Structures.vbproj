@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{24910C62-CC84-4E1A-B8A8-68491A67E93D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>GB_Maps_Tools_OpenBVE_Structures.My.MyApplication</StartupObject>
+    <RootNamespace>GB_Maps_Tools_OpenBVE_Structures</RootNamespace>
+    <AssemblyName>GB Maps - ギビマップ Tools for OpenBVE Structures</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\Karyait-pc\f\Karya IT\BVE\blog\</InstallUrl>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>GB Maps - ギビマップ Tools for OpenBVE Structures.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>GB Maps - ギビマップ Tools for OpenBVE Structures.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>GBToolIkon2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F873C90A0AA49E1EB61E795D8C795DA6EEB7E51A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GB Maps for OpenBVE Structures_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DialogBrowseBVEDirHelp.Designer.vb">
+      <DependentUpon>DialogBrowseBVEDirHelp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBrowseBVEDirHelp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBrowseGBMapsImageDirHelp.Designer.vb">
+      <DependentUpon>DialogBrowseGBMapsImageDirHelp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBrowseGBMapsImageDirHelp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBridgeBVESyntax.Designer.vb">
+      <DependentUpon>FormBridgeBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBridgeBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBridgeTip.Designer.vb">
+      <DependentUpon>FormBridgeTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBridgeTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBVESoundSyntax.Designer.vb">
+      <DependentUpon>FormBVESoundSyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBVESoundSyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBVETrainSyntax.Designer.vb">
+      <DependentUpon>FormBVETrainSyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBVETrainSyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCrackBVESyntax.Designer.vb">
+      <DependentUpon>FormCrackBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCrackBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCrackTip.Designer.vb">
+      <DependentUpon>FormCrackTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCrackTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDikeBVEsyntax.Designer.vb">
+      <DependentUpon>FormDikeBVEsyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDikeBVEsyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDikeTip.Designer.vb">
+      <DependentUpon>FormDikeTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDikeTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEtcBVESyntax.Designer.vb">
+      <DependentUpon>FormEtcBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEtcBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormetcBVEtip.Designer.vb">
+      <DependentUpon>FormetcBVEtip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormetcBVEtip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFreeObjectSyntax.Designer.vb">
+      <DependentUpon>FormFreeObjectSyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFreeObjectSyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFreeObjectTip.Designer.vb">
+      <DependentUpon>FormFreeObjectTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFreeObjectTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGenRail.Designer.vb">
+      <DependentUpon>FormGenRail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormGenRail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHillCutBVESyntax.Designer.vb">
+      <DependentUpon>FormHillCutBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormHillCutBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHillCutTip.Designer.vb">
+      <DependentUpon>FormHillCutTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormHillCutTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOverpassBVESyntax.Designer.vb">
+      <DependentUpon>FormOverpassBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormOverpassBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOverpassTip.Designer.vb">
+      <DependentUpon>FormOverpassTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormOverpassTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlatformBVESyntax.Designer.vb">
+      <DependentUpon>FormPlatformBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlatformBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlatformTip.Designer.vb">
+      <DependentUpon>FormPlatformTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlatformTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPoleBVESyntax.Designer.vb">
+      <DependentUpon>FormPoleBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPoleBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPoleTip.Designer.vb">
+      <DependentUpon>FormPoleTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPoleTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRailBVESyntaxEx.Designer.vb">
+      <DependentUpon>FormRailBVESyntaxEx.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRailBVESyntaxEx.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRailPicHelp.Designer.vb">
+      <DependentUpon>FormRailPicHelp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRailPicHelp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRCBVEsyntax.Designer.vb">
+      <DependentUpon>FormRCBVEsyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRCBVEsyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRCTip.Designer.vb">
+      <DependentUpon>FormRCTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRCTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSoundTip.Designer.vb">
+      <DependentUpon>FormSoundTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSoundTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTrainDirTip.Designer.vb">
+      <DependentUpon>FormTrainDirTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTrainDirTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTunnelBVESyntax.Designer.vb">
+      <DependentUpon>FormTunnelBVESyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTunnelBVESyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTunnelTip.Designer.vb">
+      <DependentUpon>FormTunnelTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTunnelTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUGbveSyntax.Designer.vb">
+      <DependentUpon>FormUGbveSyntax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUGbveSyntax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUGEntrance.Designer.vb">
+      <DependentUpon>FormUGEntrance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUGEntrance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUGExit.Designer.vb">
+      <DependentUpon>FormUGExit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUGExit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUGiWallTip.Designer.vb">
+      <DependentUpon>FormUGiWallTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUGiWallTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUGoWallTip.Designer.vb">
+      <DependentUpon>FormUGoWallTip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUGoWallTip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUGsplitground.Designer.vb">
+      <DependentUpon>FormUGsplitground.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUGsplitground.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenRadius.designer.vb">
+      <DependentUpon>GenRadius.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GenRadius.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.vb">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DialogBrowseBVEDirHelp.resx">
+      <DependentUpon>DialogBrowseBVEDirHelp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogBrowseGBMapsImageDirHelp.resx">
+      <DependentUpon>DialogBrowseGBMapsImageDirHelp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBridgeBVESyntax.resx">
+      <DependentUpon>FormBridgeBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBridgeTip.resx">
+      <DependentUpon>FormBridgeTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBVESoundSyntax.resx">
+      <DependentUpon>FormBVESoundSyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBVETrainSyntax.resx">
+      <DependentUpon>FormBVETrainSyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCrackBVESyntax.resx">
+      <DependentUpon>FormCrackBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCrackTip.resx">
+      <DependentUpon>FormCrackTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDikeBVEsyntax.resx">
+      <DependentUpon>FormDikeBVEsyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDikeTip.resx">
+      <DependentUpon>FormDikeTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEtcBVESyntax.resx">
+      <DependentUpon>FormEtcBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormetcBVEtip.resx">
+      <DependentUpon>FormetcBVEtip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFreeObjectSyntax.resx">
+      <DependentUpon>FormFreeObjectSyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFreeObjectTip.resx">
+      <DependentUpon>FormFreeObjectTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGenRail.resx">
+      <DependentUpon>FormGenRail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHillCutBVESyntax.resx">
+      <DependentUpon>FormHillCutBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHillCutTip.resx">
+      <DependentUpon>FormHillCutTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOverpassBVESyntax.resx">
+      <DependentUpon>FormOverpassBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOverpassTip.resx">
+      <DependentUpon>FormOverpassTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlatformBVESyntax.resx">
+      <DependentUpon>FormPlatformBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlatformTip.resx">
+      <DependentUpon>FormPlatformTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPoleBVESyntax.resx">
+      <DependentUpon>FormPoleBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPoleTip.resx">
+      <DependentUpon>FormPoleTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRailBVESyntaxEx.resx">
+      <DependentUpon>FormRailBVESyntaxEx.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRailPicHelp.resx">
+      <DependentUpon>FormRailPicHelp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRCBVEsyntax.resx">
+      <DependentUpon>FormRCBVEsyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRCTip.resx">
+      <DependentUpon>FormRCTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSoundTip.resx">
+      <DependentUpon>FormSoundTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTrainDirTip.resx">
+      <DependentUpon>FormTrainDirTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTunnelBVESyntax.resx">
+      <DependentUpon>FormTunnelBVESyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTunnelTip.resx">
+      <DependentUpon>FormTunnelTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUGbveSyntax.resx">
+      <DependentUpon>FormUGbveSyntax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUGEntrance.resx">
+      <DependentUpon>FormUGEntrance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUGExit.resx">
+      <DependentUpon>FormUGExit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUGiWallTip.resx">
+      <DependentUpon>FormUGiWallTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUGoWallTip.resx">
+      <DependentUpon>FormUGoWallTip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUGsplitground.resx">
+      <DependentUpon>FormUGsplitground.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenRadius.resx">
+      <DependentUpon>GenRadius.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GB Maps for OpenBVE Structures_TemporaryKey.pfx" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ak233.ico" />
+    <Content Include="ak233ur.ico" />
+    <Content Include="GBToolIkon2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
