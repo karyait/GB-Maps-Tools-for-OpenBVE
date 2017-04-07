@@ -96,9 +96,9 @@ Public Class Main
             Case Else
                 rtype = ""
         End Select
-        If TextBoxRailName.Text <> "" And TextBoxRailTitle.Text <> "" And TextBoxRailBVE.Text <> "" And rtype <> "" And ComboBoxRailType.Text <> "" Then
+        If TextBoxRailName.Text <> "" And TextBoxRailTitle.Text <> "" And TextBoxRailBVE.Text <> "" And rtype <> "" And ComboBoxSleeperType.Text <> "" Then
             DataGridViewRailType.Rows.Add(New String() {DataGridViewRailType.RowCount - 1, TextBoxRailName.Text,
-                TextBoxRailTitle.Text, rtype, ComboBoxRailType.Text, TextBoxRailBVE.Text, TextBoxRailGBMaps.Text, NumericUpDownCuvRadius.Value,
+                TextBoxRailTitle.Text, rtype, ComboBoxSleeperType.Text, TextBoxRailBVE.Text, TextBoxRailGBMaps.Text, NumericUpDownCuvRadius.Value,
                 NumericUpDownSwTurnout.Value, NumericUpDownSwLength.Value, NumericUpDownRailGauge.Value})
         End If
     End Sub
@@ -1514,10 +1514,27 @@ Public Class Main
             basedir = gbIdir.ToLower.Replace("\images", "")
             If basedir <> "" Then OpenFileDialog3.InitialDirectory = basedir
         End If
+
+        OpenFileDialog3.Filter = kamus.Item("txtbuttonOpenCSVfilter")
+
         If OpenFileDialog3.ShowDialog = Windows.Forms.DialogResult.OK Then
             Dim filename As String = OpenFileDialog3.FileName
             Dim teks As String = My.Computer.FileSystem.ReadAllText(filename)
             Dim arrRow As String() = teks.Split(vbCrLf)
+
+            '# version check
+            Dim vercek = arrRow(0).Split("_")
+            If vercek.Count < 3 Then
+                MessageBox.Show(kamus.Item("txtbuttonOpenCSVerror1"), kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+
+            '# "gbmapstools_v_2.2"
+            If vercek(0) <> "gbmapstools" And vercek(1) <> "v" And (Convert.ToDouble(vercek(2)) >= 2.1) Then
+                MessageBox.Show(kamus.Item("txtbuttonOpenCSVerror2"), kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+
             For Each drow As String In arrRow
                 Dim dd As String() = drow.Split(",")
                 Select Case dd(0).Trim()
@@ -1555,6 +1572,44 @@ Public Class Main
 
                 End Select
             Next
+
+            TabControl1.SelectedTab = Step_2
+        End If
+    End Sub
+
+    Private Sub ButtonRailTip_Click(sender As Object, e As EventArgs) Handles ButtonRailTip.Click
+        FormRailPicHelp.Show()
+    End Sub
+
+    Private Sub PictureBoxRailBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxRailBVESyntax.Click
+        FormRailBVESyntaxEx.Show()
+    End Sub
+
+    Private Sub Buttonaudioadd_Click(sender As Object, e As EventArgs) Handles Buttonaudioadd.Click
+        If TextBoxaudioname.Text <> "" And TextBoxaudiotitle.Text <> "" And TextBoxaudiofile.Text <> "" And ComboBoxaudiotype.Text <> "" Then
+            DataGridViewSound.Rows.Add(New String() {DataGridViewSound.RowCount - 1, TextBoxaudioname.Text,
+                                                     TextBoxaudiotitle.Text, ComboBoxaudiotype.Text, TextBoxaudiofile.Text})
+        End If
+    End Sub
+
+    Private Sub ButtonNewUG_Click(sender As Object, e As EventArgs) Handles ButtonNewUG.Click
+        If textBoxUGName.Text <> "" And textBoxUGTitle.Text <> "" Then
+            DataGridViewUG.Rows.Add(New String() {DataGridViewUG.RowCount - 1,
+             textBoxUGName.Text, textBoxUGTitle.Text, textBoxUGImage.Text,
+              textBoxUGGroundLeft.Text, textBoxUGGroundRight.Text, "",
+              textBoxUGoWallLeft.Text, textBoxUGoWallRight.Text, "",
+              textBoxUGEntrance.Text, textBoxUGiWallLeft.Text,
+              textBoxUGiWallRight.Text, "",
+              textBoxUGExit.Text})
+            textBoxUGGroundLeft.Text = ""
+            textBoxUGGroundRight.Text = ""
+            textBoxUGoWallLeft.Text = ""
+            textBoxUGoWallRight.Text = ""
+            textBoxUGEntrance.Text = ""
+            textBoxUGiWallLeft.Text = ""
+            textBoxUGiWallRight.Text = ""
+            textBoxUGExit.Text = ""
+
         End If
     End Sub
 
