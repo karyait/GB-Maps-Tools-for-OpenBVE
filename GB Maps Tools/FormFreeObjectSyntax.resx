@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in structure.txt
+    <value>declaration 
 
-BveTs Structure List 2.00:UTF-8
-....
-road_3_overbridge,shared\overbridge\road_3.x
-m_overbridge,shared\overbridge\minobu\overbridge.x
+With Structure
+.FreeObj(21) gb_maps_v1\conventional\shared\overbridge\harber_tes\overbridge.csv,,
+.FreeObj(22) gb_maps_v1\conventional\shared\overbridge\road_3.csv,,
+.FreeObj(23) gb_maps_v1\conventional\shared\overbridge\minobu\overbridge.csv,,
 
+usage 
 
-usage syntax in map.txt
-
-79;
-	Structure['road_3_overbridge'].Put(0,0,0, 0, 0, 0, 0, 0, 0);
-	CabIlluminance.Set(0.875);
-	# overbridge</value>
+With Track
+353,.FreeObj 0;21;0;0;0
+1193,.FreeObj 0;22;0;0;0, 
+2308,.FreeObj 0;23;0;0;0, 
+</value>
   </data>
 </root>

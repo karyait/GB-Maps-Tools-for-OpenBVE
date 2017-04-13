@@ -26,6 +26,7 @@ Partial Class FormGenRail
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.ButtonGen = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ButtonGenRadius = New System.Windows.Forms.Button()
         Me.btnNvImg = New System.Windows.Forms.Button()
         Me.btnPtImg = New System.Windows.Forms.Button()
         Me.cbtype = New System.Windows.Forms.ComboBox()
@@ -50,7 +51,6 @@ Partial Class FormGenRail
         Me.Label1 = New System.Windows.Forms.Label()
         Me.NumericUpDownNo = New System.Windows.Forms.NumericUpDown()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.ButtonGenRadius = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.NumericUpDownNo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -103,6 +103,18 @@ Partial Class FormGenRail
         Me.GroupBox1.Size = New System.Drawing.Size(853, 142)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
+        '
+        'ButtonGenRadius
+        '
+        Me.ButtonGenRadius.Image = CType(resources.GetObject("ButtonGenRadius.Image"), System.Drawing.Image)
+        Me.ButtonGenRadius.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ButtonGenRadius.Location = New System.Drawing.Point(596, 110)
+        Me.ButtonGenRadius.Name = "ButtonGenRadius"
+        Me.ButtonGenRadius.Size = New System.Drawing.Size(112, 23)
+        Me.ButtonGenRadius.TabIndex = 52
+        Me.ButtonGenRadius.Text = "Generate Radius"
+        Me.ButtonGenRadius.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ButtonGenRadius.UseVisualStyleBackColor = True
         '
         'btnNvImg
         '
@@ -229,7 +241,7 @@ Partial Class FormGenRail
         Me.TextBoxfiledir.Name = "TextBoxfiledir"
         Me.TextBoxfiledir.Size = New System.Drawing.Size(327, 20)
         Me.TextBoxfiledir.TabIndex = 11
-        Me.TextBoxfiledir.Text = "gb_maps\rail\1067\ballast\1067ballast1rXXXXXi0o105.csv"
+        Me.TextBoxfiledir.Text = "rail\1067\ballast\1067ballast1rXXXXXi0o105.csv"
         '
         'Label4
         '
@@ -245,9 +257,9 @@ Partial Class FormGenRail
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(344, 11)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(27, 13)
+        Me.Label5.Size = New System.Drawing.Size(41, 13)
         Me.Label5.TabIndex = 9
-        Me.Label5.Text = "type"
+        Me.Label5.Text = "sleeper"
         '
         'Label3
         '
@@ -303,18 +315,6 @@ Partial Class FormGenRail
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'ButtonGenRadius
-        '
-        Me.ButtonGenRadius.Image = CType(resources.GetObject("ButtonGenRadius.Image"), System.Drawing.Image)
-        Me.ButtonGenRadius.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonGenRadius.Location = New System.Drawing.Point(596, 110)
-        Me.ButtonGenRadius.Name = "ButtonGenRadius"
-        Me.ButtonGenRadius.Size = New System.Drawing.Size(112, 23)
-        Me.ButtonGenRadius.TabIndex = 52
-        Me.ButtonGenRadius.Text = "Generate Radius"
-        Me.ButtonGenRadius.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ButtonGenRadius.UseVisualStyleBackColor = True
         '
         'FormGenRail
         '

@@ -118,17 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in structure.txt
+    <value>declaration
 
-BveTs Structure List 2.00:UTF-8
-....
-CraSR,crack\slab\CraSlbR.x
-CraSL,crack\slab\CraSlbL.x
+With Structure
+.CrackL(9) gb_maps\rail\1067\ballast\CraBalL.csv
+.CrackR(9) gb_maps\rail\1067\ballast\CraBalR.csv
 
-usage syntax in map.txt
-27900;	
-	.....
-	Structure['CraSR'].PutBetween('0','4');
-	Structure['CraSR'].PutBetween('5','1');</value>
+usage
+
+With Track
+
+1575,.crack 1;8;9,.crack 9;4;9,
+1600,.crack 1;8;9,.crack 9;4;9,
+1625,.crack 1;8;9,.crack 9;4;9,
+1650,.crack 9;4;9,
+1675,.crack 9;4;9,
+1700,.crack 9;4;9,
+1725,.crack 9;4;9,</value>
   </data>
 </root>

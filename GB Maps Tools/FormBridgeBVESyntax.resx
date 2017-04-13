@@ -118,57 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in structure.txt:
-BveTs Structure List 2.00:UTF-8
+    <value>declaration:
 
-grass,shared\ground\grass.x
+With Structure
+.WallL(0) gb_maps_v1\conventional\shared\bridge\deck1.csv,,
+.WallR(0) gb_maps_v1\conventional\shared\bridge\deck2.csv,,
+.FreeObj(21) gb_maps_v1\conventional\shared\bridge\bridge_gray\bridge1.csv,,
 
-river,shared\river\river.x
+usage:
 
-ditch,shared\river\ditch.x
+With Track
+325,.FreeObj 0;21;0;0;0,  ; bridge
+350,.FreeObj 0;21;0;0;0
+375,.FreeObj 0;21;0;0;0
+400,.FreeObj 0;21;0;0;0
+425,.FreeObj 0;21;0;0;0,  ; bridge
 
-levee,shared\river\levee.x
-
-railbase_132,1067\rail\bridge\brrail1067.x
-
-bridgeL_5,shared\bridge\deck1.x
-
-bridgeR_5,shared\bridge\deck2.x
-
-bridgeL_7,shared\bridge\bridge\bridge1.x
-
-usage in map.txt:
-144;
-Repeater['railL_0'].Begin0(0, 0, 5, 5,'railL_0');
-Repeater['railR_0'].Begin0(0, 0, 5, 5,'railR_0');
-Repeater['railbase_0'].Begin0(0, 0, 5, 5,'railbase_132');
-Repeater['railL_1'].Begin0(1, 0, 5, 5,'railL_0');
-Repeater['railR_1'].Begin0(1, 0, 5, 5,'railR_0');
-Repeater['railbase_1'].Begin0(1, 0, 5, 5,'railbase_132');
-
-150;
-Repeater['bridgeL_5'].Begin0(0, 0, 5, 25,'bridgeL_5');
-Repeater['bridgeR_5'].Begin0(1, 0, 5, 25,'bridgeR_5');
-RollingNoise.Change(2);
-Repeater['Ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 1, 25, 25,'river');
-# bridge
-156;
-# river 25 m
-169;
-Repeater['railL_0'].Begin0(0, 0, 5, 5,'railL_0');
-Repeater['railR_0'].Begin0(0, 0, 5, 5,'railR_0');
-Repeater['railbase_0'].Begin0(0, 0, 5, 5,'railbase_0');
-Repeater['railL_1'].Begin0(1, 0, 5, 5,'railL_0');
-Repeater['railR_1'].Begin0(1, 0, 5, 5,'railR_0');
-Repeater['railbase_1'].Begin0(1, 0, 5, 5,'railbase_0');
-
-175;
-Repeater['bridgeL_5'].End();
-Repeater['bridgeR_5'].End();
-RollingNoise.Change(0);
-Repeater['Ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 1, 25, 25,'levee');
-# bridge
-200;
-Repeater['Ground'].Begin(0, 0, -0.5, 0, 0, 0, 0, 1, 25, 25,'grass');</value>
+1175,.Wall 0;0;0,  ; bridge
+1300,.WallEnd 0,  ; bridge</value>
   </data>
 </root>

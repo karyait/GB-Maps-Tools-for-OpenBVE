@@ -33,10 +33,10 @@ Public Class Main
             .Add("txtMsgWarningTitle", "Warning")
             .Add("txtBVEtraindir", "Please select BVE train folder ...")
             .Add("txtbuttonOpenCSVimgdir1st", "Please set image dir first")
-            .Add("txtbuttonOpenCSVfilter", "GB Maps Data|*.csv|All files|*.*")
+            .Add("txtbuttonOpenCSVfilter", "GB Maps Data|*.txt|All files|*.*")
             .Add("txtbuttonOpenCSVerror1", "Sorry! invalid format or older data version not supported.")
             .Add("txtbuttonOpenCSVerror2", "unknown error.")
-            .Add("txtButtonSaveTXTfilter", "GB Maps Data|*.csv|All files|*.*")
+            .Add("txtButtonSaveTXTfilter", "GB Maps Data|*.txt|All files|*.*")
             .Add("txtButtonGenerateGBMapsJSfilter", "Javascript file|*.js|All files|*.*")
             .Add("txtButtonGenerateGBMapsJSSaved", "Script file saved succesfully.")
             .Add("txtUpdateXFileFieldErrorbvedir", "Please set default bve folder in step 1, first.")
@@ -48,7 +48,7 @@ Public Class Main
             .Add("txtTabControl1Errorbvedir", "BVE data folder not exist")
             .Add("txtTabControl1Errorimgdir", "GB Maps image folder not exist")
             .Add("txtTabControl1RefSaved", "Reference saved")
-            .Add("txtButtonSaveTXTSaved", "CSV file saved succesfully.")
+            .Add("txtButtonSaveTXTSaved", "TXT file saved succesfully.")
         End With
 
 
@@ -1223,33 +1223,16 @@ Public Class Main
     Private Sub ButtonGenerateGBMapsJS_Click(sender As Object, e As EventArgs) Handles ButtonGenerateGBMapsJS.Click
         Dim basedir = gbIdir.ToLower.Replace("\images", "")
         If SaveFileDialog1.InitialDirectory = "" Then SaveFileDialog1.InitialDirectory = basedir & "\script"
-        SaveFileDialog1.Filter = "Javascript file|*.js|All files|*.*"
+        SaveFileDialog1.Filter = kamus.Item("txtButtonGenerateGBMapsJSfilter")
         If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
             Dim scriptfile = SaveFileDialog1.FileName 'basedir & "\script\gbm-objects.js"
             Dim txt As New StringBuilder
             'txt.AppendLine("GB Maps - ギビマップ Tools,2.0.0,gauge,object title")
-            txt.AppendLine("// This file is created with GB Maps - ギビマップ Tools v2.0.0. If necessary, you can create your own file reference. ")
-            txt.AppendLine("// Fail ini dicipta dengan GB Maps - ギビマップ Tools v2.0.0. Jika perlu, anda boleh membuat rujukan fail anda sendiri. ")
+            txt.AppendLine("// This file is created with GB Maps - ギビマップ Tools v2.1.0. If necessary, you can create your own file reference. ")
+            txt.AppendLine("// Fail ini dicipta dengan GB Maps - ギビマップ Tools v2.1.0. Jika perlu, anda boleh membuat rujukan fail anda sendiri. ")
             txt.AppendLine("var gbmdatatool = 'GB Maps - ギビマップ Tools';")
-            txt.AppendLine("var gbmdataversion = '2.0.0';")
-            'txt.AppendLine("var gbmdatagauge = '1067';")
-            'txt.AppendLine("var bverailobjArr = [];")
-            ''txt.AppendLine("var bvegbmapOArr = [];")
-            'txt.AppendLine("var bvebveStrOjArr = [];")
-            'txt.AppendLine("var bvefreeObjArr = [];")
-            'txt.AppendLine("var bvetrainObjArr = [];")
-            'txt.AppendLine("var bveaudioObjArr = [];")
-            'txt.AppendLine("var bvetrainDirArr = [];")
-            'txt.AppendLine("var bvetunnelObjArr = [];")
-            'txt.AppendLine("var bveplatformObjArr = [];")
-            'txt.AppendLine("var bvecutObjArr = [];")
-            'txt.AppendLine("var bvedikeObjArr = [];")
-            'txt.AppendLine("var bveFOObjArr = [];")
-            'txt.AppendLine("var bvebridgeObjArr = [];")
-            'txt.AppendLine("var bveRCObjArr = [];")
-            'txt.AppendLine("var bveUGObjArr = [];")
-            'txt.AppendLine("var bvepoleObjArr = [];")
-            'txt.AppendLine("var bvecrackObjArr = [];")
+            txt.AppendLine("var gbmdataversion = '2.1.0';")
+
             txt.AppendLine("var ttxt ='';")
 
             txt.AppendLine()
@@ -1428,6 +1411,23 @@ Public Class Main
                 End If
             Next
 
+            '#14 UG (15 item = 0 - 14)
+            For ro = 0 To DataGridViewUG.RowCount - 1
+                If DataGridViewUG.Item(0, ro).Value <> "" And DataGridViewUG.Item(1, ro).Value <> "" And
+                    DataGridViewUG.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewUG.Item(0, ro).Value &
+                        "','" & DataGridViewUG.Item(1, ro).Value & "','" & DataGridViewUG.Item(2, ro).Value &
+                        "','" & DataGridViewUG.Item(3, ro).Value & "','" & DataGridViewUG.Item(4, ro).Value &
+                        "','" & DataGridViewUG.Item(5, ro).Value & "','" & DataGridViewUG.Item(6, ro).Value &
+                        "','" & DataGridViewUG.Item(7, ro).Value & "','" & DataGridViewUG.Item(8, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bveUGObjArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
             Try
                 File.WriteAllText(scriptfile, txt.ToString)
                 MessageBox.Show("Script file ('" & scriptfile & "') saved succesfully.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -1529,7 +1529,7 @@ Public Class Main
                 Exit Sub
             End If
 
-            '# "gbmapstools_v_2.2"
+            '# "gbmapstools_v_2.1"
             If vercek(0) <> "gbmapstools" And vercek(1) <> "v" And (Convert.ToDouble(vercek(2)) >= 2.1) Then
                 MessageBox.Show(kamus.Item("txtbuttonOpenCSVerror2"), kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
@@ -1540,34 +1540,122 @@ Public Class Main
                 Select Case dd(0).Trim()
                     Case "rail"
                         'DataGridViewRailType
-                        Dim dty As String() = dd(4).Split("_")
-                        DataGridViewRailType.Rows.Add(New String() {dd(1), dd(2), dd(3), dty(0), dty(1), dd(6), dd(5), dd(7), dd(8), dd(9), dd(10)})
+                        Try
+                            Dim dty As String() = dd(4).Split("_")
+                            DataGridViewRailType.Rows.Add(New String() {dd(1), dd(2), dd(3), dty(0), dty(1), dd(6), dd(5), dd(7), dd(8), dd(9), dd(10)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case "bvestr"
                         'DataGridViewBVEstr
-                        DataGridViewBVEstr.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
+                        Try
+                            DataGridViewBVEstr.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case "fobj"
                         'DataGridViewBVEfobj
-                        DataGridViewBVEfobj.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+                        Try
+                            DataGridViewBVEfobj.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case "traindir"
-                        DataGridViewTrainDir.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5)})
+                        Try
+                            DataGridViewTrainDir.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case "tunnel"
-                        DataGridViewTunnel.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12), dd(13), dd(14), dd(15), dd(16)})
+                        Try
+                            DataGridViewTunnel.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12), dd(13), dd(14), dd(15), dd(16)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case "bridge"
-                        DataGridViewBridge.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10)})
+                        Try
+                            DataGridViewBridge.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case "fo"
-                        DataGridViewFlyOver.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
+                        Try
+                            DataGridViewFlyOver.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case "cut"
-                        DataGridViewCut.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+                        Try
+                            DataGridViewCut.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case "dike"
-                        DataGridViewDike.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+                        Try
+                            DataGridViewDike.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case "rc"
-                        DataGridViewRC.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
+                        Try
+                            DataGridViewRC.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case "pform"
-                        DataGridViewPlatform.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12)})
+                        Try
+                            DataGridViewPlatform.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9), dd(10), dd(11), dd(12)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case "poles"
-                        DataGridViewPole.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+                        Try
+                            DataGridViewPole.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case "cracks"
-                        DataGridViewCrack.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+                        Try
+                            DataGridViewCrack.Rows.Add(New String() {dd(1), dd(2), dd(3), dd(4), dd(5), dd(6)})
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+                    Case "ug"
+                        '#14 "ug, "
+                        Try
+                            DataGridViewUG.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5), dd(6), dd(7), dd(8), dd(9)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+
                     Case Else
 
                 End Select
@@ -1596,15 +1684,9 @@ Public Class Main
         If textBoxUGName.Text <> "" And textBoxUGTitle.Text <> "" Then
             DataGridViewUG.Rows.Add(New String() {DataGridViewUG.RowCount - 1,
              textBoxUGName.Text, textBoxUGTitle.Text, textBoxUGImage.Text,
-              textBoxUGGroundLeft.Text, textBoxUGGroundRight.Text, "",
-              textBoxUGoWallLeft.Text, textBoxUGoWallRight.Text, "",
-              textBoxUGEntrance.Text, textBoxUGiWallLeft.Text,
-              textBoxUGiWallRight.Text, "",
-              textBoxUGExit.Text})
+              textBoxUGGroundLeft.Text, textBoxUGEntrance.Text, textBoxUGiWallLeft.Text,
+              textBoxUGiWallRight.Text, textBoxUGExit.Text})
             textBoxUGGroundLeft.Text = ""
-            textBoxUGGroundRight.Text = ""
-            textBoxUGoWallLeft.Text = ""
-            textBoxUGoWallRight.Text = ""
             textBoxUGEntrance.Text = ""
             textBoxUGiWallLeft.Text = ""
             textBoxUGiWallRight.Text = ""
@@ -1616,10 +1698,11 @@ Public Class Main
     Private Sub SaveCSV()
         Dim basedir = gbIdir.ToLower.Replace("\images", "")
         If SaveFileDialog1.InitialDirectory = "" Then SaveFileDialog1.InitialDirectory = basedir & "\data"
-        SaveFileDialog1.Filter = "GB Maps Data|*.txt|All files|*.*"
+        SaveFileDialog1.Filter = kamus.Item("txtButtonSaveTXTfilter")
         If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
             Dim txt As New StringBuilder
             Dim filename As String = SaveFileDialog1.FileName
+            txt.AppendLine("gbmapstools_v_2.1")
 
             For ro = 0 To DataGridViewRailType.RowCount - 1
                 If DataGridViewRailType.Item(0, ro).Value <> "" And DataGridViewRailType.Item(1, ro).Value <> "" And DataGridViewRailType.Item(2, ro).Value <> "" Then
@@ -1751,6 +1834,24 @@ Public Class Main
                     txt.AppendLine(ttxt)
                 End If
             Next
+
+            '#14 Underground (15 item = 0 - 14)
+            Try
+                For ro = 0 To DataGridViewUG.RowCount - 1
+                    If DataGridViewUG.Item(0, ro).Value <> "" And DataGridViewUG.Item(1, ro).Value <> "" And
+                        DataGridViewUG.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "ug, " & DataGridViewUG.Item(0, ro).Value &
+                            ", " & DataGridViewUG.Item(1, ro).Value & ", " & DataGridViewUG.Item(2, ro).Value &
+                            ", " & DataGridViewUG.Item(3, ro).Value & ", " & DataGridViewUG.Item(4, ro).Value &
+                            ", " & DataGridViewUG.Item(5, ro).Value & ", " & DataGridViewUG.Item(6, ro).Value &
+                            ", " & DataGridViewUG.Item(7, ro).Value & ", " & DataGridViewUG.Item(8, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewUG")
+            End Try
+
             Try
                 File.WriteAllText(filename, txt.ToString)
             Catch ex As Exception
@@ -1891,4 +1992,265 @@ Public Class Main
             'End Try
         End If
     End Sub
+
+    Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
+        If saved = False And TabControl1.SelectedIndex <> 0 Then
+            Dim notexist = ""
+            If Directory.Exists(textBoxBVEdataDir.Text) = False Then
+                notexist &= kamus.Item("txtTabControl1Errorbvedir") & vbCrLf
+            End If
+            If Directory.Exists(textBoxGBimgDir.Text) = False Then
+                notexist &= kamus.Item("txtTabControl1Errorimgdir")
+            End If
+            If notexist <> "" Then
+                MessageBox.Show(notexist, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                TabControl1.SelectedTab = Step_1
+                If Directory.Exists(textBoxBVEdataDir.Text) = False Then
+                    textBoxBVEdataDir.Focus()
+                Else
+                    textBoxGBimgDir.Focus()
+                End If
+                Exit Sub
+            End If
+
+            Try
+                bvedir = textBoxBVEdataDir.Text
+                gbIdir = textBoxGBimgDir.Text
+                Dim xCfile As XElement =
+                        <dir>
+                            <bve><%= textBoxBVEdataDir.Text %></bve>
+                            <gbimg><%= textBoxGBimgDir.Text %></gbimg>
+                        </dir>
+                xCfile.Save("oconfig.xml")
+                MessageBox.Show(kamus.Item("txtTabControl1RefSaved"), kamus.Item("txtMsgInfoTitle"),
+                                MessageBoxButtons.OK, MessageBoxIcon.Information)
+                saved = True
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+
+        End If
+    End Sub
+
+    Private Sub textBoxBVEdataDir_TextChanged(sender As Object, e As EventArgs) Handles textBoxBVEdataDir.TextChanged
+        saved = False
+    End Sub
+
+    Private Sub RadioButtonRailOPSt_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonRailOPSt.CheckedChanged
+        TextBoxRailBVE.Enabled = True
+        ButtonRTBVEfile.Enabled = True
+        Label3.Enabled = True
+        GroupBox32.Enabled = False
+    End Sub
+
+    Private Sub RadioButtonRailOPCv_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonRailOPCv.CheckedChanged
+        TextBoxRailBVE.Enabled = False
+        ButtonRTBVEfile.Enabled = False
+        Label3.Enabled = False
+        GroupBox32.Enabled = True
+    End Sub
+
+    Private Sub ButtonPoleTip_Click(sender As Object, e As EventArgs) Handles ButtonPoleTip.Click
+        FormPoleTip.Show()
+    End Sub
+
+    Private Sub PictureBoxPoleBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxPoleBVESyntax.Click
+        FormPoleBVESyntax.Show()
+    End Sub
+
+    Private Sub ButtonTrainFolderTip_Click(sender As Object, e As EventArgs) Handles ButtonTrainFolderTip.Click
+        FormTrainDirTip.Show()
+    End Sub
+
+    Private Sub PictureBoxTrainBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxTrainBVESyntax.Click
+        FormBVETrainSyntax.Show()
+    End Sub
+
+    Private Sub ButtonSoundTip_Click(sender As Object, e As EventArgs) Handles ButtonSoundTip.Click
+        FormSoundTip.Show()
+    End Sub
+
+    Private Sub PictureBoxSoundBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxSoundBVESyntax.Click
+        FormBVESoundSyntax.Show()
+    End Sub
+
+    Private Sub PictureBoxTunnelBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxTunnelBVESyntax.Click
+        FormTunnelBVESyntax.Show()
+    End Sub
+
+    Private Sub ButtonTunnelTip_Click(sender As Object, e As EventArgs) Handles ButtonTunnelTip.Click
+        FormTunnelTip.Show()
+    End Sub
+
+    Private Sub ButtonBridgeTip_Click(sender As Object, e As EventArgs) Handles ButtonBridgeTip.Click
+        FormBridgeTip.Show()
+    End Sub
+
+    Private Sub PictureBoxBridgeBVESyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxBridgeBVESyntax.Click
+        FormBridgeBVESyntax.Show()
+    End Sub
+
+    Private Sub PictureBoxOPsy_Click(sender As Object, e As EventArgs) Handles PictureBoxOPsy.Click
+        FormOverpassBVESyntax.Show()
+    End Sub
+
+    Private Sub ButtonOPtip_Click(sender As Object, e As EventArgs) Handles ButtonOPtip.Click
+        FormOverpassTip.Show()
+    End Sub
+
+    Private Sub ButtonHillCutTip_Click(sender As Object, e As EventArgs) Handles ButtonHillCutTip.Click
+        FormHillCutTip.Show()
+    End Sub
+
+    Private Sub PictureBoxHillCutSy_Click(sender As Object, e As EventArgs) Handles PictureBoxHillCutSy.Click
+        FormHillCutBVESyntax.Show()
+    End Sub
+
+    Private Sub ButtonDikeTip_Click(sender As Object, e As EventArgs) Handles ButtonDikeTip.Click
+        FormDikeTip.Show()
+    End Sub
+
+    Private Sub PictureBoxHcSy_Click(sender As Object, e As EventArgs) Handles PictureBoxHcSy.Click
+        FormDikeBVEsyntax.Show()
+    End Sub
+
+    Private Sub ButtonRCTip_Click(sender As Object, e As EventArgs) Handles ButtonRCTip.Click
+        FormRCTip.Show()
+    End Sub
+
+    Private Sub PictureBoxRCSy_Click(sender As Object, e As EventArgs) Handles PictureBoxRCSy.Click
+        FormRCBVEsyntax.Show()
+    End Sub
+
+    Private Sub PictureBoxFrmSy_Click(sender As Object, e As EventArgs) Handles PictureBoxFrmSy.Click
+        FormPlatformBVESyntax.Show()
+    End Sub
+
+    Private Sub ButtonFrmTip_Click(sender As Object, e As EventArgs) Handles ButtonFrmTip.Click
+        FormPlatformTip.Show()
+    End Sub
+
+    Private Sub ButtonCrkTip_Click(sender As Object, e As EventArgs) Handles ButtonCrkTip.Click
+        FormCrackTip.Show()
+    End Sub
+
+    Private Sub PictureBoxCrkSy_Click(sender As Object, e As EventArgs) Handles PictureBoxCrkSy.Click
+        FormCrackBVESyntax.Show()
+    End Sub
+
+    Private Sub ButtonFOtip_Click(sender As Object, e As EventArgs) Handles ButtonFOtip.Click
+        FormFreeObjectTip.Show()
+    End Sub
+
+    Private Sub PictureBoxFOSy_Click(sender As Object, e As EventArgs) Handles PictureBoxFOSy.Click
+        FormFreeObjectSyntax.Show()
+    End Sub
+
+    Private Sub ButtonetcTip_Click(sender As Object, e As EventArgs) Handles ButtonetcTip.Click
+        FormetcBVEtip.Show()
+    End Sub
+
+    Private Sub PictureBoxEtcSy_Click(sender As Object, e As EventArgs) Handles PictureBoxEtcSy.Click
+        FormEtcBVESyntax.Show()
+    End Sub
+
+    Private Sub ButtonUGGroundTip_Click(sender As Object, e As EventArgs) Handles ButtonUGGroundTip.Click
+        FormUGsplitground.Show()
+    End Sub
+
+    Private Sub ButtonUGoWallTip_Click(sender As Object, e As EventArgs)
+        FormUGoWallTip.Show()
+    End Sub
+
+    Private Sub ButtonUGentranceTip_Click(sender As Object, e As EventArgs) Handles ButtonUGentranceTip.Click
+        FormUGEntrance.Show()
+    End Sub
+
+    Private Sub ButtonUGiWallTip_Click(sender As Object, e As EventArgs) Handles ButtonUGiWallTip.Click
+        FormUGiWallTip.Show()
+    End Sub
+
+    Private Sub ButtonUGExitTip_Click(sender As Object, e As EventArgs) Handles ButtonUGExitTip.Click
+        FormUGExit.Show()
+    End Sub
+
+    Private Sub PictureBoxUGbveSyntax_Click(sender As Object, e As EventArgs) Handles PictureBoxUGbveSyntax.Click
+        FormUGbveSyntax.Show()
+    End Sub
+
+    Private Sub textBoxGBimgDir_TextChanged(sender As Object, e As EventArgs) Handles textBoxGBimgDir.TextChanged
+        saved = False
+    End Sub
+
+    Public Sub UpdateXFileField(TB As TextBox, file As filetype, PB As PictureBox)
+        If bvedir Is Nothing And file = filetype.x Then
+            MessageBox.Show(kamus.Item("txtUpdateXFileFieldErrorbvedir"),
+                            kamus.Item("txtMsgWarningTitle"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
+        If gbIdir Is Nothing And file = filetype.img Then
+            MessageBox.Show(kamus.Item("txtUpdateXFileFieldErrorimgdir"),
+                            kamus.Item("txtMsgWarningTitle"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
+
+        Dim FileDialog As New OpenFileDialog
+        With FileDialog
+            .AddExtension = True
+            .CheckFileExists = True
+            .CheckPathExists = True
+
+            .Multiselect = False
+            .CheckFileExists = True
+            .CheckPathExists = True
+            .DereferenceLinks = True
+            Select Case file
+                Case filetype.x
+                    .Filter = kamus.Item("txtUpdateXFileFieldFilterX")
+                    If IO.Directory.Exists(currDir) Then
+                        .InitialDirectory = currDir
+                    Else
+                        .InitialDirectory = bvedir
+                    End If
+                Case filetype.img
+                    .Filter = kamus.Item("txtUpdateXFileFieldFilterImg")
+                    If IO.Directory.Exists(gbIdir) Then .InitialDirectory = gbIdir
+                Case filetype.wav
+                    .Filter = kamus.Item("txtUpdateXFileFieldFilterSnd")
+                Case Else
+                    .Filter = kamus.Item("txtUpdateXFileFieldFilterAll")
+            End Select
+
+        End With
+
+        If FileDialog.ShowDialog = DialogResult.OK Then
+            Select Case file
+                Case filetype.x
+                    TB.Text = FileDialog.FileName.ToLower.Replace(bvedir.ToLower & "\", "")
+                    currDir = My.Computer.FileSystem.GetParentPath(FileDialog.FileName)
+
+                Case filetype.img
+                    Try
+                        TB.Text = FileDialog.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
+
+                        PB.Image = Nothing
+                        PB.Image = Image.FromFile(FileDialog.FileName)
+
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message)
+                    End Try
+
+                Case filetype.wav
+                    Dim filename = "sounds\" & My.Computer.FileSystem.GetFileInfo(FileDialog.FileName).Name
+                    TB.Text = filename
+
+                Case Else
+                    TB.Text = FileDialog.FileName.ToLower
+
+            End Select
+
+        End If
+    End Sub
+
 End Class

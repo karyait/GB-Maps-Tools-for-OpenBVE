@@ -118,28 +118,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in structure.txt
+    <value>declaration 
 
-BveTs Structure List 2.00:UTF-8
-....
-sign_m_curve,shared\freeobj\km_p\m_curve.x
-sign_sloop_down-up,shared\freeobj\km_p\sloop_down-up.x
-sign_sloop_down-level,shared\freeobj\km_p\sloop_down-level.x
-sign_sloop_up-down,shared\freeobj\km_p\sloop_up-down.x
-sign_kmp,shared\freeobj\km_p\kmp.x
-sign_500mp,shared\freeobj\km_p\500mp.x
-sign_100mp,shared\freeobj\km_p\100mp.x
+With Texture
+.BackGround(0) al-kimia\copy\jr_oita_bt\common\back\backbp_10.bmp,,
 
-usage syntax in map.txt
+With Structure
+.Ground(0) gb_maps_v1\conventional\shared\ground\grass.csv,,
+.Ground(1) gb_maps_v1\conventional\shared\river\river.csv,,
+.Ground(2) gb_maps_v1\conventional\shared\river\ditch.csv,,
+.FreeObj(0) gb_maps\km_p\m_curve.csv,,
+.FreeObj(1) gb_maps\km_p\sloop_down-up.csv,,
+.FreeObj(2) gb_maps\km_p\sloop_level-up.csv,,
+.FreeObj(3) gb_maps\km_p\sloop_down-level.csv,,
+.FreeObj(4) gb_maps\km_p\sloop_up-level.csv,,
+.FreeObj(5) gb_maps\km_p\sloop_level-down.csv,,
+.FreeObj(6) gb_maps\km_p\sloop_up-down.csv,,
+.FreeObj(7) gb_maps\km_p\sloop_up-up.csv,,
+.FreeObj(8) gb_maps\km_p\sloop_down-down.csv,,
+.FreeObj(9) gb_maps\km_p\kmp.csv,,
+.FreeObj(10) gb_maps\km_p\500mp.csv,,
+.FreeObj(11) gb_maps\km_p\100mp.csv,,
+.FreeObj(21) gb_maps_v1\conventional\shared\bridge\bridge\bridge1.csv,,
 
-700;
-	Structure['sign_100mp'].Put(0, 2, -0.4, 0, 0, 0, 0, 0, 0);
+usage 
 
-718;
-	Legacy.Pitch(-5);
-	Structure['sign_sloop_down-level'].Put(0, -2, -0.3, 0, 0, 0, 0, 0, 0);
+With Track
+525,.Ground 1,  ; bridge
+575,.FreeObj 0;21;0;0;0
+625,.FreeObj 0;21;0;0;0
+634,,  ; river 200 m
+675,.FreeObj 0;21;0;0;0
+725,.Ground 2,.FreeObj 0;21;0;0;0
+750,.FreeObj 0;21;0;0;0,.Ground 0,
 
-800;
-	Structure['sign_100mp'].Put(0, 2, -0.4, 0, 0, 0, 0, 0, 0);</value>
+899,.Pitch 2,.FreeObj 0;7;-2;-0.3;0,</value>
   </data>
 </root>

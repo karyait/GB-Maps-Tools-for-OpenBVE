@@ -118,24 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in structure.txt:
+    <value>declaration :
 
-BveTs Structure List 2.00:UTF-8
-....
-FoL_1,shared\flyover\walll.x
-FoR_1,shared\flyover\wallr.x
+With Structure
+.WallL(0) gb_maps_v1\conventional\shared\flyover\walll.csv,,
+.WallR(0) gb_maps_v1\conventional\shared\flyover\wallr.csv,,
 
+usage :
 
-usage example in map.txt:
-
-75;
-Repeater['FoL_1'].Begin0(0, 1, 25, 25,'FoL_1');
-Repeater['FoR_1'].Begin0(1, 1, 25, 25,'FoR_1');
-# flyover
-
-875;
-Repeater['FoL_1'].End();
-Repeater['FoR_1'].End();
-# flyover</value>
+With Track
+125,.Wall 0;-1;0,.Wall 1;1;0,  ; flyover @ overpass
+550,.WallEnd 0,.WallEnd 1,  ; flyover @ overpass</value>
   </data>
 </root>

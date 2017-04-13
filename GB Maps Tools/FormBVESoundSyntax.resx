@@ -117,30 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in sound3d.txt example:
-BveTs Sound List 2.00:UTF-8
-
-Rc4_0,sounds\Fumikiri.wav,5
-
-declaration in sound.txt example:
-BveTs Sound List 2.00:UTF-8
-
-Wav_0,sounds\Bell.wav
-ding,sounds\Ding.wav
-
-usage in map.txt:
-BveTs Map 2.00:UTF-8
-.....
-Sound.Load('sounds.txt');
-Sound3D.Load('sounds3d.txt');
-
-4470;
-....
-     Sound3D['Rc4_0'].Put(-3.2, 2.7);
-
-1620;
-....
-    Sound['ding'].Play();</value>
-  </data>
 </root>

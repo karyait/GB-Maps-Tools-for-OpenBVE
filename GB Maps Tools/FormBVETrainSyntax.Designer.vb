@@ -22,7 +22,6 @@ Partial Class FormBVETrainSyntax
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormBVETrainSyntax))
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
@@ -30,15 +29,15 @@ Partial Class FormBVETrainSyntax
         '
         Me.RichTextBox1.Location = New System.Drawing.Point(5, 8)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(425, 341)
+        Me.RichTextBox1.Size = New System.Drawing.Size(425, 100)
         Me.RichTextBox1.TabIndex = 2
-        Me.RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
+        Me.RichTextBox1.Text = "declaration:" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "With Train" & Global.Microsoft.VisualBasic.ChrW(10) & ".Folder E231-Oyama"
         '
         'FormBVETrainSyntax
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(434, 361)
+        Me.ClientSize = New System.Drawing.Size(434, 110)
         Me.Controls.Add(Me.RichTextBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "FormBVETrainSyntax"

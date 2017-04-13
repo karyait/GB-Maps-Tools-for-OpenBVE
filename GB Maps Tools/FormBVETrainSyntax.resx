@@ -117,17 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in Scenario file (.txt in ..\Bvets\Scenarios folder)
-
-BveTs Scenario 2.00:UTF-8
-Route = Historical Line\map.txt
-Vehicle = Historical Line\C11207\vehicle.txt
-Title = portweld
-RouteTitle = Historical Line
-VehicleTitle = C11207
-Author = Karya IT
-Comment = Taiping - Kuala Sepetang (Port Weld)
-Image = Historical Line\train.jpg</value>
-  </data>
 </root>

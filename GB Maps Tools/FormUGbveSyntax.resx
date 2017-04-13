@@ -118,50 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in structure.txt
+    <value>declaration 
 
-BveTs Structure List 2.00:UTF-8
-grnL,shared\underground\0001-green-grassL_1.x
-grnR,shared\underground\0001-green-grassR_1.x
-wuL1,shared\underground\UwallR01.x
-wuR1,shared\underground\UwallL01.x
-uEt1,shared\underground\EntDt1_1.x
-uEx1,shared\underground\ExDt1_1.x
-uWL1,shared\underground\UTwallL_1.x
-uWR1,shared\underground\UTwallR_1.x
+With Structure
+.Rail(0) BallastS.csv
+.Rail(1) Under2\SlabS.csv
+.Ground(0) Grass.csv
+.Ground(1) Under2\Grass.csv
+.WallR(0) Under2\TunnelR.csv
+.WallL(0) Under2\TunnelL.csv
+.FreeObj(0) Under2\Tunnel.csv
 
+With Texture
+.Background(0) Bg_Fine.bmp
+.Background(1) Under2\Back.bmp
 
-usage syntax in map.txt
-700;
-	Legacy.Pitch(-30);
-	Track['Ground'].Position(0, -0.6);
-	Repeater['Ground'].End();
-	Track['GroundL'].Position(0, -0.6);
-	Track['GroundR'].Position(3.8, -0.6);
-	Repeater['GugL'].Begin('GroundL', -2.7, 0, 0, 0, 0, 0, 1, 25, 25,'grnL');
-	Repeater['GugR'].Begin('GroundR', 2.7, 0, 0, 0, 0, 0, 1, 25, 25,'grnR');
-	Repeater['wuL_0'].Begin0('GroundL', 1, 25, 25,'wuL1');
-	Repeater['wuR_0'].Begin0('GroundR', 1, 25, 25,'wuR1');
-900;
-	# ug entrance
-	Structure['uEt1'].Put(, 0, 0, 0, 0, 0, 0, 0, 0);
-	Repeater['wuL_0'].End();
-	Repeater['wuR_0'].End();	
-	Repeater['GugL'].End();
-	Repeater['GugR'].End();	
-	CabIlluminance.Set(1);
-	RollingNoise.Change(4);
-	
-905;
-	CabIlluminance.Set(0);
-	Repeater['uWL_0'].Begin0(, 1, 5, 5,'uWL1');
-	Repeater['uWR_0'].Begin0('1', 1, 5, 5,'uWR1');
-	Repeater['Ground'].Begin0('Ground', 1, 25, 25,'grnD');
-	Repeater['railbase_0'].Begin(, 0, 0, 0, 0, 0, 0, 3, 5, 5,'darkballast');
-	Repeater['railL_0'].Begin(, 0, 0, 0, 0, 0, 0, 3, 5, 5,'railL_D');
-	Repeater['railR_0'].Begin(, 0, 0, 0, 0, 0, 0, 3, 5, 5,'railR_D');
-	Repeater['railbase_1'].Begin('1', 0, 0, 0, 0, 0, 0, 3, 5, 5,'darkballast');
-	Repeater['railL_1'].Begin('1', 0, 0, 0, 0, 0, 0, 3, 5, 5,'railL_D');
-	Repeater['railR_1'].Begin('1', 0, 0, 0, 0, 0, 0, 3, 5, 5,'railR_D');</value>
+usage 
+
+With Track
+0,.Sta A;;;0;-1;0;0;,.Stop 1,.Height 0.45
+1000,.Pitch -10,.Height 0.45,.Ground 1
+2000,.Pitch 0,.Height -9.55,.Wall 0;0;0,.BackGround 1,.RailType 0;1,.Ground 0,.FreeObj 0;0
+3000,.Sta B;;;0;-1;1;0;,.Stop -1</value>
   </data>
 </root>

@@ -118,29 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in structure.txt
+    <value>declaration
 
-BveTs Structure List 2.00:UTF-8
-TunS_tun1LR,tunnel\tunnel0\tunstart1.x
-TunL1_0,tunnel\tunnel0\tunnel1ls.x
-TunR1_0,tunnel\tunnel0\tunnel1rs.x
-TunL2_0,tunnel\tunnel0\tunnel1l.x
-TunR2_0,tunnel\tunnel0\tunnel1r.x
-TunL4_0,tunnel\tunnel0\tunnel1le.x
-TunR4_0,tunnel\tunnel0\tunnel1re.x
+With Structure
 
-usage syntax in map.txt
-16225;
-	....
-	Structure['TunS_tun1LR'].Put('0', 0, 0, 0, 0, 0, 0, 0, 0);
-	....
-	# tunnel
-	Repeater['TunL2_0'].Begin('0', 0.5, 0, 0, 0, 0, 0, 1, 25, 25,'TunL2_0');
-	Repeater['TunR2_0'].Begin('1', -0.5, 0, 0, 0, 0, 0, 1, 25, 25,'TunR2_0');	
+.WallL(0) gb_maps_v1\conventional\shared\tunnel\tunl.csv,,
+.WallR(0) gb_maps_v1\conventional\shared\tunnel\tunr.csv,,
+.WallL(1) gb_maps_v1\conventional\shared\tunnel\tunsl.csv,,
+.WallR(1) gb_maps_v1\conventional\shared\tunnel\tunsr.csv,,
+.FreeObj(21) gb_maps_v1\conventional\shared\tunnel\tune_d1_s.csv,,
+.FreeObj(22) gb_maps_v1\conventional\shared\tunnel\nucy\tunents.csv,,
 
-21200;
-	....
-	Repeater['TunL2_0'].End();
-	Repeater['TunR2_0'].End();</value>
+
+usage 
+
+100,.FreeObj 0;21;0;0;0,.Wall 0;-1;0,.Wall 1;1;0,  ; tunnel
+
+550,.WallEnd 0,.WallEnd 1,  ; tunnel</value>
   </data>
 </root>

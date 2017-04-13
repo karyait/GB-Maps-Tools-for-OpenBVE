@@ -22,7 +22,6 @@ Partial Class FormBVESoundSyntax
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormBVESoundSyntax))
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
@@ -30,15 +29,17 @@ Partial Class FormBVESoundSyntax
         '
         Me.RichTextBox1.Location = New System.Drawing.Point(5, 8)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(425, 341)
+        Me.RichTextBox1.Size = New System.Drawing.Size(425, 120)
         Me.RichTextBox1.TabIndex = 2
-        Me.RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
+        Me.RichTextBox1.Text = "usage :" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "With Track" & Global.Microsoft.VisualBasic.ChrW(10) & "6,.Doppler crossing.wav;-3.2;2.7" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "125,.sta Mula;  S; ; 1; -1;" &
+    " 0; 0; ; 20; 100;test_route\salam.wav, " & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "4600,.Announce al-kimia\huluselangor-tm" &
+    "-kl\soon-bernam jaya.wav; 0,"
         '
         'FormBVESoundSyntax
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(434, 361)
+        Me.ClientSize = New System.Drawing.Size(434, 130)
         Me.Controls.Add(Me.RichTextBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "FormBVESoundSyntax"

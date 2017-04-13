@@ -22,7 +22,6 @@ Partial Class FormPoleBVESyntax
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormPoleBVESyntax))
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
@@ -30,15 +29,16 @@ Partial Class FormPoleBVESyntax
         '
         Me.RichTextBox1.Location = New System.Drawing.Point(5, 5)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(425, 344)
+        Me.RichTextBox1.Size = New System.Drawing.Size(425, 150)
         Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
+        Me.RichTextBox1.Text = "declaration:" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "With Structure" & Global.Microsoft.VisualBasic.ChrW(10) & ".Pole(0; 0) Pole1.csv," & Global.Microsoft.VisualBasic.ChrW(10) & ".Pole(1; 0) Pole2.csv," & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "usage" &
+    ":" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "With Track" & Global.Microsoft.VisualBasic.ChrW(10) & "0, .Pole 0; 0; -1; 25; 4,"
         '
         'FormPoleBVESyntax
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(434, 361)
+        Me.ClientSize = New System.Drawing.Size(434, 157)
         Me.Controls.Add(Me.RichTextBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "FormPoleBVESyntax"

@@ -117,22 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in structure.txt
-
-BveTs Structure List 2.00:UTF-8
-Pole_3,poles\SuperExpress_Double_1a\pole21a-2.x
-Pole1L,poles\SuperExpress_Single_1c\pole1cL.x
-Pole1R,poles\SuperExpress_Single_1c\pole1cR.x
-ohwire_0,rail\ohsk.x
-
-usage syntax in map.txt
-0;
-	.... 
-	Repeater['ohwire_0'].Begin(0, 0, 0, 0, 0, 0, 0, 0, 25, 25,'ohwire_0');
-	Repeater['ohwire_1'].Begin('1', 0, 0, 0, 0, 0, 0, 0, 25, 25,'ohwire_0');
-	Repeater['PoleL'].Begin0('0', 1, 25, 25,'Pole1L');
-	Repeater['PoleR'].Begin0('1', 1, 25, 25,'Pole1R');
-	.....</value>
-  </data>
 </root>

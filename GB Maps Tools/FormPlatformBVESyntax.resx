@@ -118,33 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in structure.txt
+    <value>declaration
 
-BveTs Structure List 2.00:UTF-8
-FormCL0,Stations\PfCL.x
-FormCL1,Stations\PfCL1.x
-FormCR0,Stations\PfCR.x
-FormCR1,Stations\PfCR1.x
-FormL0,Stations\PfL.x
-FormR0,Stations\PfR.x
-RoofCL1,Stations\RoofCL.x
-RoofCR1,Stations\RoofCR.x
-RoofL1,Stations\RoofL.x
-RoofR1,Stations\RoofR.x
+With Structure
+.FormL(1) gb_maps_v1\conventional\shared\form\forml.csv,,
+.FormCL(1) gb_maps_v1\conventional\shared\form\formcl.csv,,
+.FormCR(1) gb_maps_v1\conventional\shared\form\formcr.csv,,
+.FormR(1) gb_maps_v1\conventional\shared\form\formr.csv,,
+.RoofL(1) gb_maps_v1\conventional\shared\form\roofl.csv,,
+.RoofCL(1) gb_maps_v1\conventional\shared\form\roofcl.csv,,
+.RoofCR(1) gb_maps_v1\conventional\shared\form\roofcr.csv,,
+.RoofR(1) gb_maps_v1\conventional\shared\form\roofr.csv,,
 
-usage syntax in map.txt
-2;
-	Structure['FormL0'].Put0('', 1, 25);
-	Structure['FormCL0'].Put0('', 1, 25);
-	Structure['RoofL1'].Put0('', 1, 25);
-	Structure['RoofCL1'].Put0('', 1, 25);
-	Structure['FormR0'].Put0('Opp', 1, 25);
-	Structure['FormCR0'].Put0('Opp', 1, 25);
-	Structure['RoofR1'].Put0('Opp', 1, 25);
-	Structure['RoofCR1'].Put0('Opp', 1, 25);
-23;
-	Station['Midoridai'].Put(-1, -2, 2);
-	Train['Oncoming'].Stop(3, 0, 0, 0);
-	Structure['StopS'].Put('', 1.7, 0, 0, 0, 15, 0, 1, 25);</value>
+usage
+
+With Track
+
+225,.sta Mula;  S; ; 1; 1; 0; 0; ; 20; 100;test_route\salam.wav, ,.Form 0;4;1;1,.Form 1;5;1;1,.Rail 4;-11.4;0;0,.Rail 5;22.8;0;0
+250,.Form 0;4;1;1,.Form 1;5;1;1
+275,.Form 0;4;1;1,.Form 1;5;1;1
+300,.Form 0;4;1;1,.Form 1;5;1;1
+325,.Form 0;4;1;1,.Form 1;5;1;1
+350,.Form 0;4;1;1,.Form 1;5;1;1
+375,.Form 0;4;1;1,.Form 1;5;1;1
+400,.Form 0;4;1;1,.Form 1;5;1;1
+425,.Form 0;4;1;1,.Form 1;5;1;1
+450,.Form 0;4;1;1,.Form 1;5;1;1
+475,.Form 0;4;1;1,.Form 1;5;1;1
+500,.Form 0;4;1;1,.Form 1;5;1;1
+520,.stop -1; ; ; 15</value>
   </data>
 </root>

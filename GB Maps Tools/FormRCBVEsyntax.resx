@@ -118,27 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in structure.txt
+    <value>declaration
 
-BveTs Structure List 2.00:UTF-8
-....
-Rc0_0,1067\crossing\tollbardl.x
-Rc1_0,1067\crossing\crossingd.x
-Rc2_0,1067\crossing\tollbardr.x
+With Structure
+.FreeObj(21) gb_maps_v1\conventional\1067\crossing\tollbardl.csv,,
+.FreeObj(22) gb_maps_v1\conventional\1067\crossing\crossingd.csv,,
+.FreeObj(23) gb_maps_v1\conventional\1067\crossing\tollbardr.csv,,
+.FreeObj(24) gb_maps_v1\conventional\1067\crossing\tollbarsl.csv,,
+.FreeObj(25) gb_maps_v1\conventional\1067\crossing\crossings.csv,,
+.FreeObj(26) gb_maps_v1\conventional\1067\crossing\tollbarsr.csv,,
 
-declaration in sounds3d.txt
-...
-BveTs Sound List 2.00:UTF-8
-Rc4_0,sounds\Fumikiri.wav,5
+usage
 
-
-BVE usage syntax:
-
-143;
-	Structure['Rc0_0'].Put(0, 0, 0, 0, 0, 0, 0, 0, 0);
-	Structure['Rc1_0'].Put(0, 0, 0, 0, 0, 0, 0, 0, 0);
-	Structure['Rc1_0'].Put(1, 0, 0, 0, 0, 0, 0, 0, 0);
-	Structure['Rc2_0'].Put(1, 0, 0, 0, 0, 0, 0, 0, 0);
-	Sound3D['Rc4_0'].Put(-3.2, 2.7);</value>
+With Track
+6,.FreeObj 0;21;0;0;0,.FreeObj 0;22;0;0;0,.FreeObj 1;22;0;0;0,.FreeObj 1;23;0;0;0,.Doppler crossing.wav;-3.2;2.7
+39,.FreeObj 0;24;0;0;0,.FreeObj 0;25;0;0;0,.FreeObj 1;25;0;0;0,.FreeObj 1;26;0;0;0,.Doppler crossing.wav;-3.2;2.7</value>
   </data>
 </root>

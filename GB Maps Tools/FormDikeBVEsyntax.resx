@@ -118,22 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in structure.txt
+    <value>declaration
 
-BveTs Structure List 2.00:UTF-8
-....
-dikeL_0,shared\dike\dikel_01.x
-dikeR_0,shared\dike\diker_01.x
+With Structure
+.DikeL(0) gb_maps_v1\conventional\shared\dike\dikel_01.csv,,
+.DikeR(0) gb_maps_v1\conventional\shared\dike\diker_01.csv,,
+.DikeL(1) gb_maps_v1\conventional\shared\dike\dike\dike_01_l.csv,,
+.DikeR(1) gb_maps_v1\conventional\shared\dike\dike\dike_01_r.csv,,
 
+usage
 
-BVE usage syntax:
-
-1525;
-	Repeater['dikeL_0'].Begin0(0, 1, 25, 25,'dikeL_0');
-	Repeater['dikeR_0'].Begin0(1, 1, 25, 25,'dikeR_0');
-
-1900;
-	Repeater['dikeL_0'].End();
-	Repeater['dikeR_0'].End();</value>
+With Track
+0,.Dike 0;0;0
+255,.DikeEnd 0,.Dike 0;0;1
+731,.DikeEnd 0</value>
   </data>
 </root>

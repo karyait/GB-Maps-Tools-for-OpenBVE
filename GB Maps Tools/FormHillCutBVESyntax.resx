@@ -118,23 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>declaration in structure.txt
+    <value>declaration
 
-BveTs Structure List 2.00:UTF-8
-....
-CutL_0,shared\hillcut\wallg\wallgl.x
-CutR_0,shared\hillcut\wallg\wallgr.x
+With Structure
+.WallL(0) gb_maps_v1\conventional\shared\hillcut\wallg\wallgl.csv,,
+.WallR(0) gb_maps_v1\conventional\shared\hillcut\wallg\wallgr.csv,,
+.WallL(1) gb_maps_v1\conventional\shared\hillcut\cement_l61.csv,,
+.WallR(1) gb_maps_v1\conventional\shared\hillcut\cement_r61.csv,,
 
+usage
 
-BVE usage syntax:
+450,.Wall 0;-1;0,.Wall 1;1;0,  ; cut
+1150,.WallEnd 0,.WallEnd 1,  ; cut
 
-225;
-	Repeater['CutL_0'].Begin0(0, 1, 25, 25,'CutL_0');
-	Repeater['CutR_0'].Begin0(1, 1, 25, 25,'CutR_0');
-	# cut
-
-600;
-	Repeater['CutL_0'].End();
-	Repeater['CutR_0'].End();</value>
+1225,.Wall 0;-1;1,.Wall 1;1;1,  ; cut
+1800,.WallEnd 0,.WallEnd 1,  ; cut
+</value>
   </data>
 </root>
