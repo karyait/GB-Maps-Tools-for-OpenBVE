@@ -491,8 +491,12 @@ Partial Class Main
         Me.DataGridViewTextBoxColumn59 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Step_14 = New System.Windows.Forms.TabPage()
         Me.Panel15 = New System.Windows.Forms.Panel()
+        Me.ButtonUGGroundTip = New System.Windows.Forms.Button()
         Me.ButtonUGExitTip = New System.Windows.Forms.Button()
+        Me.LabelS14_Txt07 = New System.Windows.Forms.Label()
+        Me.buttonBrowseUGGroundLeft = New System.Windows.Forms.Button()
         Me.ButtonUGentranceTip = New System.Windows.Forms.Button()
+        Me.textBoxUGGroundLeft = New System.Windows.Forms.TextBox()
         Me.LabelS14_Txt20 = New System.Windows.Forms.Label()
         Me.buttonBrowseUGExit = New System.Windows.Forms.Button()
         Me.textBoxUGExit = New System.Windows.Forms.TextBox()
@@ -512,10 +516,6 @@ Partial Class Main
         Me.LabelS14_Txt01 = New System.Windows.Forms.Label()
         Me.PictureBoxUGbveSyntax = New System.Windows.Forms.PictureBox()
         Me.LabelS14_Txt02 = New System.Windows.Forms.Label()
-        Me.ButtonUGGroundTip = New System.Windows.Forms.Button()
-        Me.LabelS14_Txt07 = New System.Windows.Forms.Label()
-        Me.buttonBrowseUGGroundLeft = New System.Windows.Forms.Button()
-        Me.textBoxUGGroundLeft = New System.Windows.Forms.TextBox()
         Me.LabelS14_Txt03 = New System.Windows.Forms.Label()
         Me.buttonBrowseUGImage = New System.Windows.Forms.Button()
         Me.textBoxUGName = New System.Windows.Forms.TextBox()
@@ -524,6 +524,15 @@ Partial Class Main
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.PictureBoxUG = New System.Windows.Forms.PictureBox()
         Me.DataGridViewUG = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Entrance = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.iWallLeft = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.iWallRight = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UGExit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Step_15 = New System.Windows.Forms.TabPage()
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.ButtonFOtip = New System.Windows.Forms.Button()
@@ -609,15 +618,6 @@ Partial Class Main
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.OpenFileDialog3 = New System.Windows.Forms.OpenFileDialog()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Entrance = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.iWallLeft = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.iWallRight = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UGExit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.Step_1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -5093,6 +5093,15 @@ Partial Class Main
         Me.Panel15.Size = New System.Drawing.Size(702, 282)
         Me.Panel15.TabIndex = 15
         '
+        'ButtonUGGroundTip
+        '
+        Me.ButtonUGGroundTip.Image = CType(resources.GetObject("ButtonUGGroundTip.Image"), System.Drawing.Image)
+        Me.ButtonUGGroundTip.Location = New System.Drawing.Point(618, 126)
+        Me.ButtonUGGroundTip.Name = "ButtonUGGroundTip"
+        Me.ButtonUGGroundTip.Size = New System.Drawing.Size(28, 23)
+        Me.ButtonUGGroundTip.TabIndex = 68
+        Me.ButtonUGGroundTip.UseVisualStyleBackColor = True
+        '
         'ButtonUGExitTip
         '
         Me.ButtonUGExitTip.Image = CType(resources.GetObject("ButtonUGExitTip.Image"), System.Drawing.Image)
@@ -5102,6 +5111,24 @@ Partial Class Main
         Me.ButtonUGExitTip.TabIndex = 81
         Me.ButtonUGExitTip.UseVisualStyleBackColor = True
         '
+        'LabelS14_Txt07
+        '
+        Me.LabelS14_Txt07.AutoSize = True
+        Me.LabelS14_Txt07.Location = New System.Drawing.Point(10, 131)
+        Me.LabelS14_Txt07.Name = "LabelS14_Txt07"
+        Me.LabelS14_Txt07.Size = New System.Drawing.Size(113, 13)
+        Me.LabelS14_Txt07.TabIndex = 67
+        Me.LabelS14_Txt07.Text = "Split ground structure :"
+        '
+        'buttonBrowseUGGroundLeft
+        '
+        Me.buttonBrowseUGGroundLeft.Image = CType(resources.GetObject("buttonBrowseUGGroundLeft.Image"), System.Drawing.Image)
+        Me.buttonBrowseUGGroundLeft.Location = New System.Drawing.Point(589, 126)
+        Me.buttonBrowseUGGroundLeft.Name = "buttonBrowseUGGroundLeft"
+        Me.buttonBrowseUGGroundLeft.Size = New System.Drawing.Size(23, 23)
+        Me.buttonBrowseUGGroundLeft.TabIndex = 37
+        Me.buttonBrowseUGGroundLeft.UseVisualStyleBackColor = True
+        '
         'ButtonUGentranceTip
         '
         Me.ButtonUGentranceTip.Image = CType(resources.GetObject("ButtonUGentranceTip.Image"), System.Drawing.Image)
@@ -5110,6 +5137,13 @@ Partial Class Main
         Me.ButtonUGentranceTip.Size = New System.Drawing.Size(28, 23)
         Me.ButtonUGentranceTip.TabIndex = 71
         Me.ButtonUGentranceTip.UseVisualStyleBackColor = True
+        '
+        'textBoxUGGroundLeft
+        '
+        Me.textBoxUGGroundLeft.Location = New System.Drawing.Point(129, 128)
+        Me.textBoxUGGroundLeft.Name = "textBoxUGGroundLeft"
+        Me.textBoxUGGroundLeft.Size = New System.Drawing.Size(454, 20)
+        Me.textBoxUGGroundLeft.TabIndex = 33
         '
         'LabelS14_Txt20
         '
@@ -5287,40 +5321,6 @@ Partial Class Main
         Me.LabelS14_Txt02.TabIndex = 1
         Me.LabelS14_Txt02.Text = "Title :"
         '
-        'ButtonUGGroundTip
-        '
-        Me.ButtonUGGroundTip.Image = CType(resources.GetObject("ButtonUGGroundTip.Image"), System.Drawing.Image)
-        Me.ButtonUGGroundTip.Location = New System.Drawing.Point(618, 126)
-        Me.ButtonUGGroundTip.Name = "ButtonUGGroundTip"
-        Me.ButtonUGGroundTip.Size = New System.Drawing.Size(28, 23)
-        Me.ButtonUGGroundTip.TabIndex = 68
-        Me.ButtonUGGroundTip.UseVisualStyleBackColor = True
-        '
-        'LabelS14_Txt07
-        '
-        Me.LabelS14_Txt07.AutoSize = True
-        Me.LabelS14_Txt07.Location = New System.Drawing.Point(10, 131)
-        Me.LabelS14_Txt07.Name = "LabelS14_Txt07"
-        Me.LabelS14_Txt07.Size = New System.Drawing.Size(113, 13)
-        Me.LabelS14_Txt07.TabIndex = 67
-        Me.LabelS14_Txt07.Text = "Split ground structure :"
-        '
-        'buttonBrowseUGGroundLeft
-        '
-        Me.buttonBrowseUGGroundLeft.Image = CType(resources.GetObject("buttonBrowseUGGroundLeft.Image"), System.Drawing.Image)
-        Me.buttonBrowseUGGroundLeft.Location = New System.Drawing.Point(589, 126)
-        Me.buttonBrowseUGGroundLeft.Name = "buttonBrowseUGGroundLeft"
-        Me.buttonBrowseUGGroundLeft.Size = New System.Drawing.Size(23, 23)
-        Me.buttonBrowseUGGroundLeft.TabIndex = 37
-        Me.buttonBrowseUGGroundLeft.UseVisualStyleBackColor = True
-        '
-        'textBoxUGGroundLeft
-        '
-        Me.textBoxUGGroundLeft.Location = New System.Drawing.Point(129, 128)
-        Me.textBoxUGGroundLeft.Name = "textBoxUGGroundLeft"
-        Me.textBoxUGGroundLeft.Size = New System.Drawing.Size(454, 20)
-        Me.textBoxUGGroundLeft.TabIndex = 33
-        '
         'LabelS14_Txt03
         '
         Me.LabelS14_Txt03.AutoSize = True
@@ -5393,6 +5393,60 @@ Partial Class Main
         Me.DataGridViewUG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewUG.Size = New System.Drawing.Size(981, 201)
         Me.DataGridViewUG.TabIndex = 13
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.HeaderText = ""
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.Width = 30
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.HeaderText = "Name"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.Width = 80
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.HeaderText = "Title"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.Width = 150
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.HeaderText = "Image"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.Width = 120
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.HeaderText = "groundSplit"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.Width = 120
+        '
+        'Entrance
+        '
+        Me.Entrance.HeaderText = "Entrance"
+        Me.Entrance.Name = "Entrance"
+        Me.Entrance.Width = 120
+        '
+        'iWallLeft
+        '
+        Me.iWallLeft.HeaderText = "iWallLeft"
+        Me.iWallLeft.Name = "iWallLeft"
+        Me.iWallLeft.Width = 120
+        '
+        'iWallRight
+        '
+        Me.iWallRight.HeaderText = "iWallRight"
+        Me.iWallRight.Name = "iWallRight"
+        Me.iWallRight.Width = 120
+        '
+        'UGExit
+        '
+        Me.UGExit.HeaderText = "UGExit"
+        Me.UGExit.Name = "UGExit"
+        Me.UGExit.Width = 120
         '
         'Step_15
         '
@@ -6112,60 +6166,6 @@ Partial Class Main
         'OpenFileDialog2
         '
         Me.OpenFileDialog2.FileName = "OpenFileDialog2"
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.HeaderText = ""
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.Width = 30
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.HeaderText = "Name"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.Width = 80
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.HeaderText = "Title"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.Width = 150
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.HeaderText = "Image"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.Width = 120
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        Me.DataGridViewTextBoxColumn15.HeaderText = "groundSplit"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        Me.DataGridViewTextBoxColumn15.Width = 120
-        '
-        'Entrance
-        '
-        Me.Entrance.HeaderText = "Entrance"
-        Me.Entrance.Name = "Entrance"
-        Me.Entrance.Width = 120
-        '
-        'iWallLeft
-        '
-        Me.iWallLeft.HeaderText = "iWallLeft"
-        Me.iWallLeft.Name = "iWallLeft"
-        Me.iWallLeft.Width = 120
-        '
-        'iWallRight
-        '
-        Me.iWallRight.HeaderText = "iWallRight"
-        Me.iWallRight.Name = "iWallRight"
-        Me.iWallRight.Width = 120
-        '
-        'UGExit
-        '
-        Me.UGExit.HeaderText = "UGExit"
-        Me.UGExit.Name = "UGExit"
-        Me.UGExit.Width = 120
         '
         'Main
         '

@@ -41,7 +41,7 @@ Public Class Main
             .Add("txtButtonGenerateGBMapsJSSaved", "Script file saved succesfully.")
             .Add("txtUpdateXFileFieldErrorbvedir", "Please set default bve folder in step 1, first.")
             .Add("txtUpdateXFileFieldErrorimgdir", "Please set default image folder in step 1, first.")
-            .Add("txtUpdateXFileFieldFilterX", "DirectX 3D object (*.x)|*.x")
+            .Add("txtUpdateXFileFieldFilterX", "CSV Files (*.csv)|*.csv|B3D Files (*.b3d)|*.b3d|DirectX 3D object (*.x)|*.x|All files|*.*")
             .Add("txtUpdateXFileFieldFilterImg", "Image Files (*.gif, *.jpg, *.png)|*.gif;*.jpg;*.png")
             .Add("txtUpdateXFileFieldFilterSnd", "Sound Files (*.wav)|*.wav")
             .Add("txtUpdateXFileFieldFilterAll", "All files|*.*")
@@ -164,11 +164,7 @@ Public Class Main
     End Sub
 
     Private Sub ButtonbveFOimg_Click(sender As System.Object, e As System.EventArgs) Handles ButtonbveFOimg.Click
-        OpenFileDialog2.InitialDirectory = gbIdir
-        If OpenFileDialog2.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-            TextBoxbvefobjimg.Text = OpenFileDialog2.FileName.ToLower.Replace(gbIdir.ToLower & "\", "")
-            PictureBoxbvefobjimg.Image = Image.FromFile(OpenFileDialog2.FileName)
-        End If
+        UpdateXFileField(TextBoxbvefobjimg, filetype.img, PictureBoxbvefobjimg)
     End Sub
 
     Private Sub DataGridViewBVEfobj_Click(sender As Object, e As System.EventArgs) Handles DataGridViewBVEfobj.Click
@@ -1428,6 +1424,21 @@ Public Class Main
                 End If
             Next
 
+            '#5 Sound (5 item = 0 - 4)
+            For ro = 0 To DataGridViewSound.RowCount - 1
+                If DataGridViewSound.Item(0, ro).Value <> "" And DataGridViewSound.Item(1, ro).Value <> "" And
+                    DataGridViewSound.Item(2, ro).Value <> "" Then
+                    Dim ttxt As String = "ttxt = ['" & DataGridViewSound.Item(0, ro).Value &
+                        "','" & DataGridViewSound.Item(1, ro).Value & "','" & DataGridViewSound.Item(2, ro).Value &
+                        "','" & DataGridViewSound.Item(3, ro).Value & "','" & DataGridViewSound.Item(4, ro).Value &
+                        "'];"
+                    ttxt = ttxt.Replace("\", "/")
+                    txt.AppendLine(ttxt)
+                    txt.AppendLine("bveaudioObjArr.push(ttxt);")
+                    txt.AppendLine("ttxt = [];")
+                End If
+            Next
+
             Try
                 File.WriteAllText(scriptfile, txt.ToString)
                 MessageBox.Show("Script file ('" & scriptfile & "') saved succesfully.", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -1656,6 +1667,15 @@ Public Class Main
                             Exit Sub
                         End Try
 
+                    Case "sound"
+                        '#5 "sound,"
+                        Try
+                            DataGridViewSound.Rows.Add(New String() {
+                            dd(1), dd(2), dd(3), dd(4), dd(5)})
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
                     Case Else
 
                 End Select
@@ -1850,6 +1870,21 @@ Public Class Main
                 Next
             Catch ex As Exception
                 MessageBox.Show(ex.Message & vbCrLf & "DataGridViewUG")
+            End Try
+
+            '#5 Sound (5 item = 0 - 4)
+            Try
+                For ro = 0 To DataGridViewSound.RowCount - 1
+                    If DataGridViewSound.Item(0, ro).Value <> "" And DataGridViewSound.Item(1, ro).Value <> "" And
+                        DataGridViewSound.Item(2, ro).Value <> "" Then
+                        Dim ttxt As String = "sound, " & DataGridViewSound.Item(0, ro).Value &
+                            ", " & DataGridViewSound.Item(1, ro).Value & ", " & DataGridViewSound.Item(2, ro).Value &
+                            ", " & DataGridViewSound.Item(3, ro).Value & ", " & DataGridViewSound.Item(4, ro).Value
+                        txt.AppendLine(ttxt)
+                    End If
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message & vbCrLf & "DataGridViewSound")
             End Try
 
             Try
@@ -2179,6 +2214,67 @@ Public Class Main
         FormUGbveSyntax.Show()
     End Sub
 
+    Private Sub Buttonbrowseaudiofile_Click(sender As Object, e As EventArgs) Handles Buttonbrowseaudiofile.Click
+        UpdateXFileField(TextBoxaudiofile, filetype.wav, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseUGImage_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGImage.Click
+        UpdateXFileField(textBoxUGImage, filetype.img, PictureBoxUG)
+    End Sub
+
+    Private Sub buttonBrowseUGGroundLeft_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGGroundLeft.Click
+        UpdateXFileField(textBoxUGGroundLeft, filetype.x, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseUGEntrance_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGEntrance.Click
+        UpdateXFileField(textBoxUGEntrance, filetype.x, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseUGiWallLeft_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGiWallLeft.Click
+        UpdateXFileField(textBoxUGiWallLeft, filetype.x, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseUGiWallRight_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGiWallRight.Click
+        UpdateXFileField(textBoxUGiWallRight, filetype.x, Nothing)
+    End Sub
+
+    Private Sub buttonBrowseUGExit_Click(sender As Object, e As EventArgs) Handles buttonBrowseUGExit.Click
+        UpdateXFileField(textBoxUGExit, filetype.x, Nothing)
+    End Sub
+
+    Private Sub TextBoxaudiofile_TextChanged(sender As Object, e As EventArgs) Handles TextBoxaudiofile.TextChanged
+        Try
+            Dim basedir = bvedir.ToLower.Replace("\object", "")
+            Dim fullpath As String = basedir & "\sound\" & TextBoxaudiofile.Text
+            If File.Exists(fullpath) Then
+                PictureBoxaudiorun.Visible = True
+                My.Computer.Audio.Stop()
+                My.Computer.Audio.Play(fullpath)
+            Else
+                PictureBoxaudiorun.Visible = False
+                MessageBox.Show(fullpath)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+
+
+    Private Sub DataGridViewUG_Click(sender As Object, e As EventArgs) Handles DataGridViewUG.Click
+        Try
+            Dim irow As Integer = DataGridViewUG.CurrentRow.Index
+            Dim fullpath As String = gbIdir.ToLower & "\" & DataGridViewUG.Item(3, irow).Value.ToString.Trim
+            If File.Exists(fullpath) Then
+                PictureBoxUG.Image = Image.FromFile(fullpath)
+            Else
+                PictureBoxUG.Image = Nothing
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, kamus.Item("txtMsgErrorTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
     Private Sub textBoxGBimgDir_TextChanged(sender As Object, e As EventArgs) Handles textBoxGBimgDir.TextChanged
         saved = False
     End Sub
@@ -2242,7 +2338,8 @@ Public Class Main
                     End Try
 
                 Case filetype.wav
-                    Dim filename = "sounds\" & My.Computer.FileSystem.GetFileInfo(FileDialog.FileName).Name
+                    Dim basedir = bvedir.ToLower.Replace("\object", "")
+                    Dim filename = FileDialog.FileName.ToLower.Replace(basedir & "\sound\", "") '"sound\" & My.Computer.FileSystem.GetFileInfo(FileDialog.FileName).Name
                     TB.Text = filename
 
                 Case Else
@@ -2253,4 +2350,20 @@ Public Class Main
         End If
     End Sub
 
+    Private Sub DataGridViewSound_Click(sender As Object, e As EventArgs) Handles DataGridViewSound.Click
+        Try
+            Dim irow As Integer = DataGridViewSound.CurrentRow.Index
+            Dim basedir = bvedir.ToLower.Replace("\object", "")
+            Dim fullpath As String = basedir & "\sound\" & DataGridViewSound.Item(4, irow).Value.ToString.Trim
+            If File.Exists(fullpath) Then
+                PictureBoxaudiorun.Visible = True
+                My.Computer.Audio.Stop()
+                My.Computer.Audio.Play(fullpath)
+            Else
+                PictureBoxaudiorun.Visible = False
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 End Class
