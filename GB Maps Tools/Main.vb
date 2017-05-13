@@ -1464,16 +1464,6 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub TabControl1_KeyDown(sender As Object, e As KeyEventArgs) Handles TabControl1.KeyDown
-        If e.KeyCode = Keys.F9 AndAlso e.Modifiers = Keys.Control Then
-            If LinkLabel1.Visible = True Then
-                LinkLabel1.Visible = False
-            Else
-                LinkLabel1.Visible = True
-            End If
-        End If
-    End Sub
-
     Private Sub Main_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         onStartup = False
         If ComboBoxLanguage.SelectedIndex <> 0 Then
@@ -1488,33 +1478,6 @@ Public Class Main
         Return controls.SelectMany(Function(ctrl) GetAll(ctrl, type)).Concat(controls).Where(Function(c) c.[GetType]() = type)
     End Function
 
-    Private Sub Main_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If e.Control AndAlso e.KeyCode = Keys.O Then
-            OpenCSV()
-        End If
-
-        If e.Control And e.KeyCode = Keys.S Then
-            SaveCSV()
-        End If
-
-        If e.KeyCode = Keys.F1 Then
-            TabControl1.SelectedTab = About
-        End If
-
-        'detect left arrow key
-        If e.KeyCode = Keys.Left Then
-            If (TabControl1.SelectedIndex > 0) Then
-                TabControl1.SelectedIndex = TabControl1.SelectedIndex - 1
-            End If
-        End If
-
-        'detect right arrow key
-        If e.KeyCode = Keys.Right Then
-            If (TabControl1.SelectedIndex < TabControl1.TabCount - 1) Then
-                TabControl1.SelectedIndex = TabControl1.SelectedIndex + 1
-            End If
-        End If
-    End Sub
 
     Private Sub OpenCSV()
         Dim basedir As String
@@ -2365,5 +2328,42 @@ Public Class Main
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+
+
+    Private Sub TabControl1_KeyDown(sender As Object, e As KeyEventArgs) Handles TabControl1.KeyDown
+        If e.KeyCode = Keys.F9 AndAlso e.Modifiers = Keys.Control Then
+            If LinkLabel1.Visible = True Then
+                LinkLabel1.Visible = False
+            Else
+                LinkLabel1.Visible = True
+            End If
+        End If
+
+        If e.Control AndAlso e.KeyCode = Keys.O Then
+            OpenCSV()
+        End If
+
+        If e.Control And e.KeyCode = Keys.S Then
+            SaveCSV()
+        End If
+
+        If e.KeyCode = Keys.F1 Then
+            TabControl1.SelectedTab = About
+        End If
+
+        'detect left arrow key
+        If e.KeyCode = Keys.Left Then
+            If (TabControl1.SelectedIndex > 0) Then
+                TabControl1.SelectedIndex = TabControl1.SelectedIndex - 1
+            End If
+        End If
+
+        'detect right arrow key
+        If e.KeyCode = Keys.Right Then
+            If (TabControl1.SelectedIndex < TabControl1.TabCount - 1) Then
+                TabControl1.SelectedIndex = TabControl1.SelectedIndex + 1
+            End If
+        End If
     End Sub
 End Class

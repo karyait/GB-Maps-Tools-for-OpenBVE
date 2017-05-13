@@ -69,7 +69,7 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>GBToolIkon2.ico</ApplicationIcon>
+    <ApplicationIcon>gbmaps.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -512,9 +512,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ak233.ico" />
-    <Content Include="ak233ur.ico" />
-    <Content Include="GBToolIkon2.ico" />
+    <Content Include="gbmaps.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

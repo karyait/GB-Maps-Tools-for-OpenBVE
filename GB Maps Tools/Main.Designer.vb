@@ -5057,7 +5057,7 @@ Partial Class Main
         Me.Step_14.Name = "Step_14"
         Me.Step_14.Size = New System.Drawing.Size(994, 503)
         Me.Step_14.TabIndex = 21
-        Me.Step_14.Text = "Step 14 (Underground)"
+        Me.Step_14.Text = "Step 14 (Subway)"
         Me.Step_14.UseVisualStyleBackColor = True
         '
         'Panel15
@@ -5150,9 +5150,9 @@ Partial Class Main
         Me.LabelS14_Txt20.AutoSize = True
         Me.LabelS14_Txt20.Location = New System.Drawing.Point(10, 348)
         Me.LabelS14_Txt20.Name = "LabelS14_Txt20"
-        Me.LabelS14_Txt20.Size = New System.Drawing.Size(95, 13)
+        Me.LabelS14_Txt20.Size = New System.Drawing.Size(71, 13)
         Me.LabelS14_Txt20.TabIndex = 80
-        Me.LabelS14_Txt20.Text = "Underground Exit :"
+        Me.LabelS14_Txt20.Text = "Subway Exit :"
         '
         'buttonBrowseUGExit
         '
@@ -5175,9 +5175,9 @@ Partial Class Main
         Me.LabelS14_Txt14.AutoSize = True
         Me.LabelS14_Txt14.Location = New System.Drawing.Point(10, 185)
         Me.LabelS14_Txt14.Name = "LabelS14_Txt14"
-        Me.LabelS14_Txt14.Size = New System.Drawing.Size(121, 13)
+        Me.LabelS14_Txt14.Size = New System.Drawing.Size(97, 13)
         Me.LabelS14_Txt14.TabIndex = 70
-        Me.LabelS14_Txt14.Text = "Underground Entrance :"
+        Me.LabelS14_Txt14.Text = "Subway Entrance :"
         '
         'GroupBoxS14_Txt15
         '
